@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        background-color: brown;
+        width: 200px;
+        height: 200px;
+        transition-property: all;
+        transition-duration: 3s;
+        transition-delay: 1s;
+      }
+
+      .box1:hover {
+        width: 100%;
+        border: 5px solid green;
+        border-radius: 10px;
+      }
+
+      .box2 {
+        background-color: skyblue;
+        margin: 30px;
+        width: 100px;
+        height: 100px;
+        transition-property: all;
+        transition-duration: 5s;
+        transition-timing-function: ease;
+      }
+
+      .box2:hover {
+        border-radius: 100%;
+        background-color: orange;
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+
+    <div class="box2"></div>
+  </body>
+</html>
