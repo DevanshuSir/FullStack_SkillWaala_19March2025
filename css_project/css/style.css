@@ -1,0 +1,440 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: rgb(65, 187, 234);
+  padding: 1rem 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: center;
+    background: black;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    color: #fff;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background: #555;
+  }
+
+  /* Hero Section */
+.hero {
+    background: url("../media/cute-girl.jpg") no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero button {
+    padding: 0.75rem 1.5rem;
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .hero button:hover {
+    background: #004d99;
+  }
+  
+
+  /* Animations */
+.tracking-in-expand-fwd {
+    -webkit-animation: tracking-in-expand-fwd 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand-fwd 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  }
+  
+  .vibrate-2 {
+    -webkit-animation: vibrate-2 0.3s linear infinite both;
+    animation: vibrate-2 0.3s linear infinite both;
+  }
+  
+  .vibrate-2:hover {
+    animation: none;
+  }
+  
+  .shake-bottom {
+    -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+    animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+  }
+  
+  /* Container */
+  .container {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .container h2 {
+    color: #0066cc;
+    text-align: center;
+  }
+  
+  /* Grid & Cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  
+  .card {
+    background: #f4f4f4;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Product Section */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .product-card {
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+  
+  .product-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #0066cc;
+  }
+  
+  .product-card p {
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 1.1rem;
+  }
+  
+  .product-card button {
+    padding: 0.75rem;
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .product-card button:hover {
+    background: #004d99;
+  }
+  
+  /* Testimonials */
+  .testimonials {
+    background: rgb(255, 130, 37);
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .testimonial {
+    margin: 1rem auto;
+    max-width: 600px;
+    font-style: italic;
+  }
+
+  /* Pricing */
+.pricing {
+    background: #fff;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .pricing h2 {
+    color: #0066cc;
+  }
+  
+  .pricing-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .pricing-plan {
+    background: url("../media/paper-bags.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+  /* Contact */
+.contact {
+    padding: 2rem;
+    background: #f9f9f9;
+  }
+  
+  .contact h2 {
+    text-align: center;
+    color: #0066cc;
+  }
+  
+  form {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  form input,
+  form textarea,
+  form button {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Blog */
+  .blog {
+    padding: 2rem;
+    background: #f4f4f4;
+  }
+  
+  .blog-post {
+    margin-bottom: 2rem;
+  }
+
+  /* Gallery */
+.gallery {
+    padding: 2rem;
+    background: #fff;
+    text-align: center;
+  }
+  
+  .gallery h2 {
+    color: #0066cc;
+  }
+  
+  .gallery img {
+    min-width: 250px;
+    max-width: 400px;
+    height: auto;
+    margin: 0.5rem;
+    border-radius: 5px;
+  }
+
+  /* FAQ */
+.faq {
+    padding: 2rem;
+    background: #444;
+    color: white;
+  }
+  
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.25rem;
+    color: white;
+  }
+  
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  
+  footer .social {
+    margin-top: 1rem;
+  }
+  
+  footer .social img {
+    width: 50px;
+  }
+  
+
+  /* Animations Keyframes */
+@-webkit-keyframes tracking-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      transform: translateZ(-700px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      transform: translateZ(-700px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes vibrate-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(-2px, 2px); }
+    80% { transform: translate(-2px, -2px); }
+  }
+  @keyframes vibrate-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(-2px, 2px); }
+    80% { transform: translate(-2px, -2px); }
+  }
+  
+  @-webkit-keyframes tracking-in-contract-bck {
+    0% {
+      letter-spacing: 1em;
+      transform: translateZ(400px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-contract-bck {
+    0% {
+      letter-spacing: 1em;
+      transform: translateZ(400px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes shake-bottom {
+    0%, 100% { transform: rotate(0deg); transform-origin: 50% 100%; }
+    10% { transform: rotate(2deg); }
+    20%, 40%, 60% { transform: rotate(-4deg); }
+    30%, 50%, 70% { transform: rotate(4deg); }
+    80% { transform: rotate(-2deg); }
+    90% { transform: rotate(2deg); }
+  }
+  @keyframes shake-bottom {
+    0%, 100% { transform: rotate(0deg); transform-origin: 50% 100%; }
+    10% { transform: rotate(2deg); }
+    20%, 40%, 60% { transform: rotate(-4deg); }
+    30%, 50%, 70% { transform: rotate(4deg); }
+    80% { transform: rotate(-2deg); }
+    90% { transform: rotate(2deg); }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    nav {
+      flex-direction: column;
+      align-items: center;
+      position: static;
+    }
+  
+    .product-grid,
+    .pricing-table {
+      grid-template-columns: 1fr;
+    }
+  
+    .gallery img {
+      width: 100%;
+    }
+  
+    .container {
+      padding: 2rem;
+    }
+  
+    form {
+      width: 100%;
+    }
+  
+    .card {
+      padding: 1rem;
+    }
+  
+    footer {
+      padding: 1.5rem 0;
+    }
+  }
+  
+  
