@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevWithDev</title>
+    <link
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .hero {
+        background: linear-gradient(to right, #4e54c8, #8f94fb);
+        color: white;
+        padding: 100px 0;
+      }
+      #about img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+      #feature i {
+        font-size: 3rem;
+        color: #4e54c8;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+      }
+      #review footer {
+        background-color: #2a2a2a;
+        color: rgb(189, 189, 189);
+        padding: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+              <div class="container">
+                <a class="navbar-brand" href="#">DevWithDev</a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"
+                        >Home</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"
+                        >About</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"
+                        >Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero -->
+
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1 class="display-4">Welcome to DevwithDev</h1>
+            <p class="lead">
+              Learn Web Development with Real Projects & Hands-on Coding
+            </p>
+            <a href="#features" class="btn btn-light btn-lg mt-4"
+              >Explore Features</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+
+    <section id="about">
+      <div class="container mt-5">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2>About DevwithDev</h2>
+            <p>
+              DevwithDev is a platform dedicated to teaching practical and
+              career-focused web development. Whether you're a beginner or
+              looking to upgrade your skills, we've got the roadmap and
+              mentorship to help you grow.
+            </p>
+            <ul>
+              <li>Free Full Stack Web Development Course</li>
+              <li>Live Projects and Real-Time Practice</li>
+              <li>Community Support and Career Guidance</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <img src="./media/about.jpeg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Section -->
+
+    <section id="feature">
+      <div class="container mt-5">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <i class="bi bi-laptop"></i>
+            <h4 class="mt-3">Responsive Design</h4>
+            <p>Looks great on all screen sizes with Bootstrap Grid System.</p>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-code-slash"></i>
+            <h4 class="mt-3">Clean Code</h4>
+            <p>
+              Easy to read, scalable, and developer-friendly code structure.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-speedometer2"></i>
+            <h4 class="mt-3">Fast Performance</h4>
+            <p>Optimized for speed and smooth user experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards -->
+
+    <section class="bg-light pt-5">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center mb-4">Explore Our Free Resources</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="./media/roadmap.webp" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h5 class="card-title">Full Stack Roadmap</h5>
+                <p class="card-text">
+                  Step-by-step guide to becoming a full stack developer with
+                  curated content and practice tips.
+                </p>
+                <a href="#" class="btn btn-primary">View Roadmap</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="./media/markus.jpg" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h5 class="card-title">Project Ideas</h5>
+                <p class="card-text">
+                  Build real-world web apps with beginner to advanced level
+                  projects using HTML, CSS, JS & more.
+                </p>
+                <a href="#" class="btn btn-primary">Explore Projects</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="./media/team.jpg" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h5 class="card-title">Join the Community</h5>
+                <p class="card-text">
+                  Connect with fellow learners, ask doubts, and grow together
+                  with DevwithDev's Telegram group.
+                </p>
+                <a href="#" class="btn btn-primary">Join Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- students -->
+
+    <section id="review" class="bg-light">
+      <div class="container p-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center mb-4">What Students Say</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <blockquote class="blockquote">
+              <p>
+                "DevwithDev has completely changed the way I learn coding. The
+                live sessions are awesome!"
+              </p>
+              <footer class="blockquote-footer">Rohit, Student 😍</footer>
+            </blockquote>
+          </div>
+          <div class="col-md-6">
+            <blockquote class="blockquote">
+              <p>
+                "Practical and beginner-friendly. I got my first freelance
+                project after this course!"
+              </p>
+              <footer class="blockquote-footer">Anjali, Developer 🥰</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
