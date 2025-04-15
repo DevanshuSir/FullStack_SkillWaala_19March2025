@@ -1,0 +1,66 @@
+cd - change directory
+pwd - print working directory
+ls - List all files
+
+git --version
+
+User setup 
+git config --global user.name ""
+git config --global user.email ""
+
+To check user
+git config --list
+git config --global user.name 
+git config --global user.email
+
+git three stage architecture
+working directory (git init)
+staging directory (git add)
+git directory (github)
+
+git status  (check status)
+git init  (create git repo)
+git add --a / git add .   (move all files staging area)
+git commit -m ""  (Git commit msg)
+git log  (check all commit)
+git log --oneline 
+git show [ssh]
+git add -- filename  (Staging a single file)
+
+git clone "" (Clone all github files)
+
+.gitignore (To ignore files)
+touch filename
+touch .gitignore   all extension file use *.extension & ignore folder(dir)
+
+git rm -f fileName  (remove file)
+git rm --cached fileName  (unstage file)
+git checkout -- fileName / git checkout fileName  (restore file)
+
+git branch (Check branch)
+git remote -v 
+git switch master
+git branch -d <branch-name>  (Delete Branch)
+git branch -m <old-branch-name> <new-branch-name>  (Rename Branch)
+
+git init
+git commit -m ""
+git branch
+git branch -M main
+git remote add origin
+git push origin main
+git push -u origin main 
+git pull origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
