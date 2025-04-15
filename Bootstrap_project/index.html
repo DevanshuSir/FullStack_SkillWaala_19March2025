@@ -42,6 +42,40 @@
         color: rgb(189, 189, 189);
         padding: 40px 0;
       }
+      #enroll {
+        background-color: #f0f8ff;
+      }
+      .join-section {
+        background-color: #fff3cd;
+        padding: 60px 0;
+      }
+      .join-section h2 {
+        font-weight: bold;
+      }
+      .join-section .btn {
+        background-color: #4e54c8;
+        color: white;
+        border: none;
+      }
+      .join-section .btn:hover {
+        background-color: #3a3fc8;
+      }
+      .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 70px;
+        z-index: 9999;
+      }
+
+      .floating-buttons img {
+        width: 100%;
+      }
+
+      .floating-buttons .btn {
+        border-radius: 100%;
+        padding: 10px 15px;
+      }
     </style>
   </head>
   <body>
@@ -214,7 +248,7 @@
       </div>
     </section>
 
-    <!-- students -->
+    <!-- students reviews -->
 
     <section id="review" class="bg-light">
       <div class="container p-5">
@@ -245,6 +279,151 @@
         </div>
       </div>
     </section>
+
+    <!-- web dev -->
+
+    <section id="enroll">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="mb-4">Start Your Web Development Journey Today!</h2>
+            <p class="mb-4">
+              Enroll now for our free course and become a skilled developer with
+              real-world experience.
+            </p>
+            <a
+              href="https://www.youtube.com/@devwithdev"
+              class="btn btn-dark btn-lg"
+              target="_blank"
+              >Enroll for Free</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+
+    <section>
+      <div class="container">
+        <div class="row m-2">
+          <div class="col-md-12">
+            <h2 class="text-center">Get in Touch</h2>
+          </div>
+        </div>
+        <form action="">
+          <div class="row m-2">
+            <div class="col-md-6">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="form-control"
+                placeholder="Your Name"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="form-control"
+                placeholder="Your Email"
+              />
+            </div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-12">
+              <textarea
+                class="form-control"
+                rows="4"
+                placeholder="Your Message"
+              ></textarea>
+            </div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-12 text-center">
+              <button class="btn btn-primary px-5">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Subscribe Now -->
+
+    <section class="join-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2>🚀 Ready to Start Your Dev Journey?</h2>
+            <p class="lead">
+              Join our free YouTube sessions and become a pro developer with
+              DevwithDev.
+            </p>
+            <a
+              href="https://youtube.com/@devwithdev"
+              target="_blank"
+              class="btn btn-lg mt-3"
+              >Subscribe Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ChatBot -->
+    <div class="floating-buttons">
+      <a href="#home" class="shadow"><img src="./media/robot.png" alt="" /></a>
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+      <div class="container-fluid bg-dark text-light p-5">
+        <div class="row justify-content-between">
+          <div class="col-md-6">
+            <a href="" class="text-decoration-none fs-1">DevwithDev</a>
+            <p>
+              DevwithDev is a platform dedicated to teaching practical and
+              career-focused web development. Whether you're a beginner or
+              looking to upgrade your skills, we've got the roadmap and
+              mentorship to help you grow.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h3>Contact</h3>
+            <ul>
+              <li>9636621346</li>
+              <li>devanshukumawat063@gmail.com</li>
+              <li>Jackson Heights, NY USA</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-md-6">
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="" class="text-light" target="_blank"
+              ><i class="bi bi-youtube"></i
+            ></a>
+          </div>
+          <div class="col-md-6">
+            <p style="text-align: right">
+              Template by <a href="">Devanshu Sir</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
