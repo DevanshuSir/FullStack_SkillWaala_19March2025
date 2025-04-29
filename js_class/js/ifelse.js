@@ -1,10 +1,27 @@
-// console.log("Kal ho na ho ");
+const prompt = require("prompt-sync")();
 
-// dsfghjkljhgfdsf;
+/**
+ if(condition){
+ statement
+ }
+ else if(condition){
+ statement
+ }
+else{
+statement
+}
 
-// console.log("Hello SkillWaalo");
+ */
 
-let num1 = parseInt(prompt("Enter first number :- "));
+// npm
+// prompt-sync - package
+// npm init -y step-1
+//npm install prompt-sync step-2
+//require("prompt-sync")() step-3
+
+// calculator
+
+let num1 = parseInt(prompt.hide("Enter first number :- "));
 let num2 = parseInt(prompt("Enter second number :- "));
 let operator = prompt("Enter Operator (+,-,/,*) :- ");
 
