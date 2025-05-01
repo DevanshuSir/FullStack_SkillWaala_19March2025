@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      h1 {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Hello class</h1>
+
+    <a href="https://www.amazon.in/" id="link">Amazon</a>
+
+    <ol id="order">
+      <li>Html</li>
+      <li>Css</li>
+      <li>Js</li>
+    </ol>
+
+    <ul id="unorder">
+      <li>Html</li>
+      <li>Css</li>
+      <li>Js</li>
+    </ul>
+
+    <script>
+      let order = document.getElementById("order").innerHTML;
+      console.log(order);
+      let unorder = document.getElementById("unorder").innerText;
+      console.log(unorder);
+
+      let a = (document.getElementById("heading").style.color = "red");
+      //   console.log(a);
+
+      let b = (document.querySelector("#link").attributes[0].value =
+        "https://www.google.co.in/");
+      //   console.log(b);
+    </script>
+  </body>
+</html>

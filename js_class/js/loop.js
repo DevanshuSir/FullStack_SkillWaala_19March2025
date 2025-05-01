@@ -50,8 +50,8 @@
 //   console.log(myArray[x]);
 // }
 
-const myArray = ["Dev", "Manny"];
+// const myArray = ["Dev", "Manny"];
 
-for (let value of myArray) {
-  console.log(value);
-}
+// for (let value of myArray) {
+//   console.log(value);
+// }
