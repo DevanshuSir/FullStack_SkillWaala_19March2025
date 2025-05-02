@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      button {
+        background-color: green;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        padding: 4px 20px 4px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn" onclick="changeColor()">color</button>
+
+    <select name="" id="options" onchange="changeValue()">
+      <option value="Car">Car</option>
+      <option value="Bike">Bike</option>
+      <option value="Bus">Bus</option>
+    </select>
+
+    <h1 id="value"></h1>
+
+    <textarea name="" id="" onselect="selectValue()">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquam expedita quidem omnis eius distinctio officia, adipisci ad maiores voluptate quos doloremque porro illum earum ex illo a rem nulla.</textarea
+    >
+    <p id="msg"></p>
+
+    <script>
+      function changeColor() {
+        document.getElementById("btn").style.backgroundColor = "red";
+      }
+
+      function changeValue() {
+        let a = document.getElementById("options").value;
+        document.getElementById("value").innerText = "You select :- " + a;
+      }
+
+      function selectValue() {
+        document.getElementById("msg").innerText = "Text Select";
+      }
+    </script>
+  </body>
+</html>

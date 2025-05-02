@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1" align="center">
+      <tr>
+        <th>
+          <input type="text" name="" id="display" />
+        </th>
+      </tr>
+      <tr>
+        <td align="center">
+          <input type="button" value="1" onclick="handleValue('1')" />
+          <input type="button" value="2" onclick="handleValue('2')" />
+          <input type="button" value="3" onclick="handleValue('3')" />
+          <input type="button" value="+" onclick="handleValue('+')" />
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <input type="button" value="4" onclick="handleValue('4')" />
+          <input type="button" value="5" onclick="handleValue('5')" />
+          <input type="button" value="6" onclick="handleValue('6')" />
+          <input type="button" value="-" onclick="handleValue('-')" />
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <input type="button" value="7" onclick="handleValue('7')" />
+          <input type="button" value="8" onclick="handleValue('8')" />
+          <input type="button" value="9" onclick="handleValue('9')" />
+          <input type="button" value="*" onclick="handleValue('*')" />
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <input type="button" value="C" onclick="handleClear()" />
+          <input type="button" value="0" onclick="handleValue('0')" />
+          <input type="button" value="=" onclick="handleCalculate()" />
+          <input type="button" value="/" onclick="handleValue('/')" />
+          <input type="button" value="🔙" onclick="handleOneValue()" />
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      const display = document.getElementById("display");
+
+      function handleValue(btn) {
+        display.value += btn;
+      }
+
+      function handleCalculate() {
+        display.value = eval(display.value);
+      }
+
+      function handleClear() {
+        display.value = "";
+      }
+
+      function handleOneValue() {
+        display.value = display.value.slice(0, -1);
+      }
+    </script>
+  </body>
+</html>

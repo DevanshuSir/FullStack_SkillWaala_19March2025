@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <title>Document</title>
+
+    <style>
+      .pass {
+        border: 1px solid black;
+        width: 200px;
+        border-radius: 5px;
+      }
+
+      .pass input {
+        border: none;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <i class="bi bi-toggle2-off" onclick="darkmode()" id="toggle"></i>
+
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestias
+      amet sunt dolorum laudantium officia quam maiores, iste aliquid quae
+      deleniti autem officiis minus. Maxime tempore quisquam asperiores harum
+      suscipit ullam officia earum doloribus, temporibus fuga delectus voluptas
+      ipsum voluptatibus quod veniam rerum omnis dolorum rem velit facere est.
+      Placeat!
+    </p>
+    <input type="color" name="" id="color" onchange="colorPicker()" />
+
+    <div class="pass">
+      <input type="password" name="" id="pass" /><i
+        class="bi bi-eye-fill"
+        id="password"
+        onclick="password()"
+      ></i>
+    </div>
+
+    <script>
+      function colorPicker() {
+        let color = document.getElementById("color").value;
+        document.body.style.backgroundColor = color;
+      }
+
+      function darkmode() {
+        let bgColor = document.body.style.backgroundColor;
+
+        if (bgColor === "" || bgColor === "white") {
+          document.body.style.backgroundColor = "black";
+          document.body.style.color = "white";
+          document.getElementById("toggle").attributes[0].value =
+            "bi bi-toggle2-on";
+        } else {
+          document.body.style.backgroundColor = "white";
+          document.body.style.color = "black";
+          document.getElementById("toggle").attributes[0].value =
+            "bi bi-toggle2-off";
+        }
+      }
+
+      function password() {
+        let password = document.getElementById("pass");
+
+        if (password.type === "password") {
+          password.type = "text";
+          document.getElementById("password").attributes[0].value =
+            "bi bi-eye-fill";
+        } else {
+          password.type = "password";
+          document.getElementById("password").attributes[0].value =
+            "bi bi-eye-slash-fill";
+        }
+      }
+    </script>
+  </body>
+</html>
