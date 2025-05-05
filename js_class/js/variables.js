@@ -1,3 +1,10 @@
+// const values = require("./module/fun1");
+// console.log(values);
+
+// const { firstName } = values;
+
+// console.log(firstName);
+
 //single line comments
 
 /*
@@ -82,10 +89,9 @@ multi line comment
 
 // console.log(age);
 
-
 // redeclare
 //reassign
-//block scop 
+//block scop
 
 // var
-//let 
+//let

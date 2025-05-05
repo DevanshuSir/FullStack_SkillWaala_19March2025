@@ -4,13 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      button {
+        background-color: gray;
+        border: none;
+        border-radius: 100%;
+        padding: 20px;
+        font-size: 35px;
+      }
+    </style>
   </head>
   <body>
-    <button id="btn">Devanshu</button>
+    <button id="btn">😍</button>
 
     <script>
-      document.getElementById("btn").addEventListener("click", () => {
-        document.getElementById("btn").innerText = "Manny";
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        btn.style.backgroundColor = "green";
+      });
+
+      btn.addEventListener("mouseenter", () => {
+        btn.innerText = "🫤";
+      });
+
+      btn.addEventListener("mouseleave", () => {
+        btn.innerText = "😉";
       });
     </script>
   </body>
