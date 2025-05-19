@@ -1,0 +1,6 @@
+.card {
+  width: 300px;
+  height: 500px;
+  border: 3px solid rgba(46, 38, 38, 0.766);
+  margin: auto;
+}

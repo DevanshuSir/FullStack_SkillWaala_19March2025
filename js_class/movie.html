@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="" alt="" id="movieimage" />
+
+    <script>
+      async function movie() {
+        const url = "https://imdb-top-100-movies.p.rapidapi.com/";
+        const options = {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "ceee6068e2msh0ae2854cdfe8ce7p16b1dejsn77cb9432854f",
+            "x-rapidapi-host": "imdb-top-100-movies.p.rapidapi.com",
+          },
+        };
+
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+          const MovieImage = result[0].image;
+          document.getElementById("movieimage").attributes[0].value =
+            MovieImage;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      movie();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+.text {
+  text-align: center;
+  color: green;
+  background-color: brown;
+}
+
+.nav {
+  text-align: center;
+  background-color: rgba(182, 205, 205, 0.161);
+  color: brown;
+}

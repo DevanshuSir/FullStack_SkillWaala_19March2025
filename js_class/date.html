@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="time"></h1>
+
+    <script>
+      setInterval(() => {
+        const todayDateTime = new Date();
+
+        //DD/MM/YY Time - H/M/S
+
+        const months = [
+          "Jan",
+          "Feb",
+          "March",
+          "April",
+          "May", //  4
+          "June",
+          "July",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+
+        // console.log(months[2]);
+
+        let todayDate = todayDateTime.getDate();
+        let todayMonth = todayDateTime.getMonth(); // 4
+        console.log(months[todayMonth]);
+        let todayYear = todayDateTime.getFullYear();
+
+        let todayHours = todayDateTime.getHours();
+        let todayMin = todayDateTime.getMinutes();
+        let todaySec = todayDateTime.getSeconds();
+
+        // console.log(
+        //   `${todayDate}/${todayMonth}/${todayYear} Time :- ${todayHours}:${todayMin}:${todaySec}`
+        // );
+
+        const time = `${todayDate}/${todayMonth}/${todayYear} Time :- ${todayHours}:${todayMin}:${todaySec}`;
+
+        document.getElementById("time").innerText = time;
+      }, 1000);
+    </script>
+  </body>
+</html>

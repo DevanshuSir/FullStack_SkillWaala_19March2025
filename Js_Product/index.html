@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .card {
+        width: 250px;
+        background-color: rgb(230, 243, 255);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgb(103, 100, 100);
+        text-align: center;
+      }
+
+      .card img {
+        width: 100%;
+        height: 160px;
+        border-radius: 5px;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        transition: transform 1s;
+        cursor: pointer;
+      }
+
+      .card h3 {
+        color: darkgreen;
+      }
+
+      .card h4 {
+        color: red;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+
+    <section class="mb-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+              <div class="container">
+                <a class="navbar-brand" href="#">DevWithDev</a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"
+                        >Home</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"
+                        >About</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"
+                        >Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container mt-5" id="product_container"></div>
+
+    <!-- Footer -->
+
+    <footer>
+      <div class="container-fluid bg-dark text-light p-5">
+        <div class="row justify-content-between">
+          <div class="col-md-6">
+            <a href="" class="text-decoration-none fs-1">DevwithDev</a>
+            <p>
+              DevwithDev is a platform dedicated to teaching practical and
+              career-focused web development. Whether you're a beginner or
+              looking to upgrade your skills, we've got the roadmap and
+              mentorship to help you grow.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h3>Contact</h3>
+            <ul>
+              <li>9636621346</li>
+              <li>devanshukumawat063@gmail.com</li>
+              <li>Jackson Heights, NY USA</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-md-6">
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="" class="text-light" target="_blank"
+              ><i class="bi bi-youtube"></i
+            ></a>
+          </div>
+          <div class="col-md-6">
+            <p style="text-align: right">
+              Template by <a href="">Devanshu Sir</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      async function data() {
+        try {
+          const response = await fetch("https://dummyjson.com/products");
+          const result = await response.json();
+          displayProducts(result.products);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      function displayProducts(value) {
+        let html = "";
+
+        value.forEach((items, index) => {
+          console.log(items);
+          html += `
+                         <div class="card">
+                            <img src=${items.images[0]} alt="" />
+                            <h3>${items.title}</h3>
+                            <h4>Price:- ${items.price} $</h4>
+                            <p>${items.description}</p>
+                         </div>
+            `;
+        });
+
+        document.getElementById("product_container").innerHTML = html;
+      }
+
+      data();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

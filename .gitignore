@@ -1,0 +1,8 @@
+/npm/node_modules
+/npm/package-lock.json
+
+/npm_new/node_modules
+/npm_new/package-lock.json
+
+/react_class/node_modules
+/react_class/package-lock.json
