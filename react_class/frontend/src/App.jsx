@@ -1,7 +1,10 @@
-import Card from "./comp/Card";
-import Navbar from "./comp/Navbar";
-import Counter from "./day41/Counter";
-import Hooks from "./day41/Hooks";
+// import Card from "./comp/Card";
+// import Navbar from "./comp/Navbar";
+// import Counter from "./day41/Counter";
+// import Hooks from "./day41/Hooks";
+
+import Form from "./day42/Form";
+import FormSecond from "./day42/FormSecond";
 
 function App() {
   let userName = "Devanshu Sir";
@@ -42,8 +45,10 @@ function App() {
         <Card userValue={value} />
       ))} */}
 
-      <Hooks />
-      <Counter />
+      {/* <Hooks />
+      <Counter /> */}
+      {/* <Form /> */}
+      <FormSecond />
     </>
   );
 }

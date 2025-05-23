@@ -6,3 +6,6 @@
 
 /react_class/node_modules
 /react_class/package-lock.json
+
+/Todo_app/todo/node_modules
+/Todo_app/todo/package-lock.json
