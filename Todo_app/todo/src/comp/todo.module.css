@@ -1,0 +1,39 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(92, 82, 82, 0.626); */
+}
+
+.input_box {
+  border: 2px solid green;
+  padding: 5px 10px 5px 10px;
+  outline: none;
+  border-bottom-left-radius: 8px;
+  margin-bottom: 10px;
+  width: 70%;
+  font-weight: bold;
+}
+
+.btn {
+  border: none;
+  background-color: green;
+  width: 30%;
+  color: white;
+  padding: 6px 25px 6px 25px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+}
+
+.btn_clear {
+  border: none;
+  background-color: rgb(222, 111, 111);
+  width: 100%;
+  color: white;
+  padding: 6px 25px 6px 25px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 7px;
+}
