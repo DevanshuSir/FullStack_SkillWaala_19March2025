@@ -9,3 +9,9 @@
 
 /Todo_app/todo/node_modules
 /Todo_app/todo/package-lock.json
+
+/weather/weather_app/node_modules
+/weather/weather_app/package-lock.json
+
+/tailwindcss/node_modules
+/tailwindcss/package-lock.json
