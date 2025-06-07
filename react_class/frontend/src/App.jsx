@@ -64,12 +64,13 @@
 // import Navbar from "./day47/Navbar";
 // import Footer from "./day47/Footer";
 // import Login from "./day47/Login";
+// import Appbar from "./day53/Appbar";
 
 // const App = () => {
 //   return (
 //     <div>
 //       <BrowserRouter>
-//         <Navbar />
+//         <Appbar />
 //         <Routes>
 //           <Route path="/" element={<HomePage />} />
 //           <Route path="/about" element={<About />} />
@@ -100,25 +101,77 @@
 
 // export default App;
 
-import React, { createContext } from "react";
-import ChildOne from "./day51New/ChildOne";
+// import React, { createContext } from "react";
+// import ChildOne from "./day51New/ChildOne";
 
 // Context Api
 // Craete Provide Consumer / useContext
 
-const data = createContext();
+// const data = createContext();
+
+// const App = () => {
+//   // let firstName = "Devanshu Sir ❤️";
+
+//   const obj = {
+//     userName: "devanshu",
+//   };
+
+//   return (
+//     <div>
+//       <h1 className="text-5xl font-bold">App Comp - Devanshu Sir ❤️</h1>
+//       <data.Provider value={obj}>
+//         <ChildOne />
+//       </data.Provider>
+//     </div>
+//   );
+// };
+
+// export default App;
+// export { data };
+
+import React, { useCallback, useMemo } from "react";
+import Memo from "./day53/Memo";
+import { useState } from "react";
+import { Button } from "@mui/material";
 
 const App = () => {
-  let firstName = "Devanshu Sir ❤️";
+  const [num, setNum] = useState(50);
+  const [newNum, setNewNum] = useState(1);
+
+  function handleDecrement() {
+    setNum(num - 1);
+  }
+
+  function handleUpdate() {
+    setNewNum(newNum + 1);
+  }
+
+  const memoriesValue = useMemo(
+    function multi() {
+      console.log("Multi Funnction render....");
+      return newNum * 10;
+    },
+    [newNum]
+  );
+
+  const myFun = useCallback(() => {
+    //task
+  }, [newNum]);
 
   return (
-    <div>
-      <data.Provider user={firstName}>
-        <ChildOne />
-      </data.Provider>
+    <div className="text-5xl font-bold">
+      {num}🌎
+      <Button variant="contained" onClick={handleDecrement}>
+        Decrement
+      </Button>
+      {newNum}😍
+      <Button variant="contained" onClick={handleUpdate}>
+        Update +{" "}
+      </Button>
+      My Multi Value :- {memoriesValue}
+      <Memo task={myFun} />
     </div>
   );
 };
 
 export default App;
-export { data };

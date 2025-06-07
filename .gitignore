@@ -15,3 +15,9 @@
 
 /tailwindcss/node_modules
 /tailwindcss/package-lock.json
+
+/redux_class/reduxtoolkit/node_modules
+/redux_class/reduxtoolkit/package-lock.json
+
+/addtocart/cart/node_modules
+/addtocart/cart/package-lock.json
