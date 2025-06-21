@@ -6,26 +6,31 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice/cartSlice";
 
 export default function ImgMediaCard(props) {
   const { productData } = props;
 
-  console.log(productData);
+  const dispatch = useDispatch();
 
   return (
-    <Card sx={{ maxWidth: 300, height: "50vh", position: "relative" }}>
+    <Card sx={{ maxWidth: 300, maxHeight: 500, position: "relative" }}>
       <CardMedia
         component="img"
         alt="green iguana"
         image={productData.image}
-        sx={{ objectFit: "contain", height: "40%" }}
+        sx={{ objectFit: "contain", height: "50%" }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="body1" component="div">
           {productData.title}
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {productData.category}
+        </Typography>
+        <Typography variant="h5" color="success">
+          Price- ${productData.price}
         </Typography>
       </CardContent>
       <CardActions>
@@ -37,7 +42,14 @@ export default function ImgMediaCard(props) {
             gap: "10px",
           }}
         >
-          <Button size="small" variant="contained" color="success">
+          <Button
+            size="small"
+            variant="contained"
+            color="success"
+            onClick={() => {
+              dispatch(addToCart(productData));
+            }}
+          >
             Add To Cart
           </Button>
           <Button size="small" variant="contained">

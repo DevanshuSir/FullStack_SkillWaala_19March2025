@@ -1,0 +1,33 @@
+Mongosh - MongodbShell connection string
+show dbs - show all db
+use db_name - Enter in db / create bd
+db - check db (db_name)
+show collections - show all collections in db
+db.createCollection("collection_name") - create a new collection
+db.collection_name.drop() - delete a collection
+
+
+*****Read
+db.collection_name.find()
+db.collection_name.findOne()
+db.collection_name.find({"name":"dev"})
+db.collection_name.findOne({"name":"dev"})
+
+*****create
+db.collection_name.insertOne({}) - single data insert
+db.collection_name.insertMany([{},{},{}]) - Multiple data insert
+
+*****Update
+db.collection_name.updateOne({"name":"dev"},{$set:{"name":"devanshu"}}) - single data update (first)
+db.collection_name.updateMany({"name":"dev"},{$set:{"name":"devanshu"}}) - all data update
+
+****Delete 
+db.collection_name.deleteOne({"name":"dev"}) - single data delete (first)
+db.collection_name.deletMany({"name":"dev"}) - multiple data delete 
+
+
+**** Conditions (Opertaors )
+$gt , $lt 
+
+db.collection_name.find({"age":{$gt:50}})
+db.collection_name.find({"age":{$lt:50}})

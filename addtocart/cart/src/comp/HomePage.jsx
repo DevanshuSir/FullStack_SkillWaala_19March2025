@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import ImgMediaCard from "./ImgMediaCard";
+import Hero from "./Hero";
 
 const HomePage = () => {
   const [product, setProduct] = useState([]);
@@ -21,13 +22,14 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>HomPage</h1>
+      <Hero />
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "15px",
+          margin: "30px",
         }}
       >
         {product.map((value) => (

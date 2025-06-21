@@ -21,3 +21,12 @@
 
 /addtocart/cart/node_modules
 /addtocart/cart/package-lock.json
+
+/backend/client/node_modules
+/backend/client/package-lock.json
+
+/backend/server/node_modules
+/backend/server/package-lock.json
+
+/expressjs/node_modules
+/expressjs/package-lock.json
