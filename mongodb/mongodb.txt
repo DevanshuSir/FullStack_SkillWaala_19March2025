@@ -1,3 +1,5 @@
+DataBase - MongoDb - NOSQL
+
 Mongosh - MongodbShell connection string
 show dbs - show all db
 use db_name - Enter in db / create bd
