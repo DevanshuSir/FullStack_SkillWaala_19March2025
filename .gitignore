@@ -30,3 +30,18 @@
 
 /expressjs/node_modules
 /expressjs/package-lock.json
+
+
+/e_commerce_mern/backend/node_modules
+/e_commerce_mern/backend/package-lock.json
+
+/e_commerce_mern/frontend/node_modules
+/e_commerce_mern/frontend/package-lock.json
+
+
+/mern/server/node_modules
+/mern/server/package-lock.json
+
+/mern/user/node_modules
+/mern/user/package-lock.json
+

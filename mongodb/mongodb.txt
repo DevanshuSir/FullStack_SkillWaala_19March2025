@@ -7,6 +7,7 @@ db - check db (db_name)
 show collections - show all collections in db
 db.createCollection("collection_name") - create a new collection
 db.collection_name.drop() - delete a collection
+db.dropDatabase() - db delete 
 
 
 *****Read
@@ -14,6 +15,7 @@ db.collection_name.find()
 db.collection_name.findOne()
 db.collection_name.find({"name":"dev"})
 db.collection_name.findOne({"name":"dev"})
+.pretty - pretty formatte
 
 *****create
 db.collection_name.insertOne({}) - single data insert
@@ -29,7 +31,28 @@ db.collection_name.deletMany({"name":"dev"}) - multiple data delete
 
 
 **** Conditions (Opertaors )
-$gt , $lt 
+$gt , $lt , $gte , $lte
+$eq , $ne
+
+.sort() - to set ascending = 1  and descending = -1
+.limit(2) - how much documents
+.skip(2) - skip the document
 
 db.collection_name.find({"age":{$gt:50}})
 db.collection_name.find({"age":{$lt:50}})
+
+Aggregation - stage - filter group modify - finale result
+
+db.collection_name.aggregate(
+    [
+        {stage1},
+        {satage2}
+    ]
+)
+
+$match 
+$count
+$limit
+$sort
+$project
+$skip
