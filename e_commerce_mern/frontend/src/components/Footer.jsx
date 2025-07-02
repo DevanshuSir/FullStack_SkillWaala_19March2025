@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 mt-16 border-t border-gray-200">
+    <footer className="bg-gradient-to-r from-green-100 via-white to-white mt-16 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-16 md:gap-32 text-gray-700">
         <div>
           <img src={Logo} alt="" className="h-24 mb-3" />
@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center text-sm text-gray-500 py-4 border-t border-gray-300">
-        © {new Date().getFullYear()} CopyRight By Devanshu sir 😍
+        © {new Date().getFullYear()} Copyright By Devanshu sir 😍
       </div>
     </footer>
   );
