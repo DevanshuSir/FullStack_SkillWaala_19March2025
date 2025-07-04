@@ -3,7 +3,7 @@ import Heroimage from "../assets/Quickzy.png";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-r from-green-100  to-white px-6 py-12 md:flex items-center justify-between max-w-7xl mx-auto rounded-xl mt-28 m-8">
+    <section className="bg-gradient-to-r from-green-100  to-white px-6 py-12 md:flex items-center justify-between max-w-7xl mx-auto rounded-xl mt-10 m-8">
       <div className="md:w-1/2 space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 ">
           Fast Delbiery 🚀

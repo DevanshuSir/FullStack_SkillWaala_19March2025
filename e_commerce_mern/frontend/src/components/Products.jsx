@@ -18,7 +18,7 @@ const Products = () => {
               Freash Item {item}
             </h3>
             <p className="text-green-600 font-bold">₹99</p>
-            <button className="mt-2 w-full bg-purple-500 text-white py-1 rounded hover:bg-purple-600">
+            <button className="mt-2 w-full bg-green-500 text-white py-1 rounded hover:bg-green-900">
               Add To Cart
             </button>
           </div>
