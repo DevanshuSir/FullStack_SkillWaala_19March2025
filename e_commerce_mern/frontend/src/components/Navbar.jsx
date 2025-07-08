@@ -7,6 +7,7 @@ import {
   FaHome,
   FaSearch,
 } from "react-icons/fa";
+import { MdContactSupport } from "react-icons/md";
 import { useState } from "react";
 import Logo from "../assets/Quickzy.png";
 
@@ -44,6 +45,12 @@ export default function Navbar() {
             </Link>
             <Link to={"/cart"} className="text-gray-700 hover:text-green-600 ">
               <FaShoppingCart className="text-xl" />
+            </Link>
+            <Link
+              to={"/contact"}
+              className="flex items-center gap-1 text-gray-700 hover:text-green-600"
+            >
+              <MdContactSupport className="text-xl" />
             </Link>
             <Link
               to={"/login"}

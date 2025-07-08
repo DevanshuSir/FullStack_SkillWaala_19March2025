@@ -12,6 +12,9 @@ const Slidebar = () => {
         <Link to={"/admin/products"} className="block hover:text-green-600">
           Manage Products
         </Link>
+        <Link to={"/admin/admin-query"} className="block hover:text-green-600">
+          Manage Query's
+        </Link>
         <Link to={"/"} className="block text-red-600 hover:underline">
           Exit To Store
         </Link>

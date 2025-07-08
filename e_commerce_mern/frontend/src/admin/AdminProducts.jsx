@@ -11,7 +11,7 @@ const AdminProducts = () => {
         <h1 className="text-3xl font-bold mb-6 text-gray-800">
           Manage Products 📊
         </h1>
-        <Link>
+        <Link to={"/admin/add-product"}>
           <button className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition">
             <FaPlus /> Add Products
           </button>
@@ -31,7 +31,10 @@ const AdminProducts = () => {
               <p className="text-green-500 font-bold mt-1">₹99</p>
 
               <div className="flex flex-col sm:flex-row justify-between mt-4">
-                <Link className="flex items-center gap-2 text-blue-500 hover:text-blue-700">
+                <Link
+                  to={"/admin/edit-product"}
+                  className="flex items-center gap-2 text-blue-500 hover:text-blue-700"
+                >
                   <FaEdit /> Edit
                 </Link>
                 <Link className="flex items-center gap-2 text-red-500 hover:text-red-700">
