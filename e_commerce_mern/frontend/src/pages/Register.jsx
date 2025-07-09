@@ -1,25 +1,36 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({ fname: "", email: "", pass: "" });
 
-  function handleForm(e) {
+  async function handleForm(e) {
     e.preventDefault();
-    fetch("/api/regdata", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((result) => {
-        console.log(result);
+
+    try {
+      const response = await fetch("/api/regdata", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success(result.message);
+        navigate("/login");
+      } else {
+        toast.error(result.message);
+      }
+
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function handleChange(e) {

@@ -2,15 +2,40 @@ import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [login, setLogin] = useState({ loginEmail: "", loginPass: "" });
 
-  function hnadleForm(e) {
+  async function hnadleForm(e) {
     e.preventDefault();
-    console.log(login);
+    try {
+      const response = await fetch("/api/loginuser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(login),
+      });
+
+      const result = await response.json();
+
+      console.log(result);
+
+      if (response.ok) {
+        if (result.data && result.data.userEmail === "admin@gmail.com") {
+          navigate("/admin/dashboard");
+          toast.success("Hello Admin 👤");
+        } else {
+          toast.success(result.message);
+          navigate("/");
+        }
+      } else {
+        toast.error(result.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function handleChange(e) {
