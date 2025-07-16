@@ -12,6 +12,7 @@ import AddProducts from "./admin/AddProducts";
 import EditProducts from "./admin/EditProducts";
 import Contact from "./pages/Contact";
 import AdminQuery from "./admin/AdminQuery";
+import QueryReply from "./admin/QueryReply";
 
 const App = () => {
   return (
@@ -28,8 +29,9 @@ const App = () => {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/products" element={<AdminProducts />} />
           <Route path="/admin/add-product" element={<AddProducts />} />
-          <Route path="/admin/edit-product" element={<EditProducts />} />
+          <Route path="/admin/edit-product/:id" element={<EditProducts />} />
           <Route path="/admin/admin-query" element={<AdminQuery />} />
+          <Route path="/admin/query-reply/:id" element={<QueryReply />} />
         </Routes>
         <Footer />
       </BrowserRouter>
