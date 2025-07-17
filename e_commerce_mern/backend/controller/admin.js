@@ -1,5 +1,6 @@
 const productCollection = require("../models/Product");
 const queryCollection = require("../models/Query");
+const nodemailer = require("nodemailer");
 
 const addAdminProductController = async (req, res) => {
   try {
@@ -88,6 +89,47 @@ const deleteQueryController = async (req, res) => {
   }
 };
 
+const singleQueryController = async (req, res) => {
+  try {
+    const id = req.params.abc;
+    const record = await queryCollection.findById(id);
+    res.status(200).json({ data: record });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error..😓" });
+  }
+};
+
+const MailReplyController = async (req, res) => {
+  try {
+    const { to, sub, body } = req.body;
+    const id = req.params.abc;
+
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: "dkexpress06@gmail.com",
+        pass: "isrluqaunwephlts",
+      },
+    });
+
+    const info = transporter.sendMail({
+      from: '"QuickZY" <dkexpress06@gmail.com>',
+      to: to,
+      subject: sub,
+      text: body, // plain‑text body
+      html: body, // HTML body
+    });
+    await queryCollection.findByIdAndUpdate(id, {
+      QueryStatus: "Read",
+    });
+    res.status(200).json({ message: "Successfully Reply 🤪" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error..😓" });
+  }
+};
+
 module.exports = {
   addAdminProductController,
   getAllProductsController,
@@ -96,4 +138,6 @@ module.exports = {
   updateProductController,
   userAllQueryController,
   deleteQueryController,
+  singleQueryController,
+  MailReplyController,
 };

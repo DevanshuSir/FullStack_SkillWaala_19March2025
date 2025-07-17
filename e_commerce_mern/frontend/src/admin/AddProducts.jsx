@@ -7,25 +7,32 @@ const AddProducts = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({ Pname: "", Price: "", Cat: "" });
 
+  const [pimage, setPimage] = useState("");
+
   async function handleForm(e) {
     e.preventDefault();
-    try {
-      const response = await fetch("/api/addadminproduct", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(product),
-      });
+    const formdata = new FormData();
+    formdata.append("Pname", product.Pname);
+    formdata.append("Price", product.Price);
+    formdata.append("Cat", product.Cat);
+    formdata.app
+    // try {
+    //   const response = await fetch("/api/addadminproduct", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(product),
+    //   });
 
-      const result = await response.json();
-      if (response.ok) {
-        toast.success(result.message);
-        navigate("/admin/products");
-      } else {
-        toast.error(result.message);
-      }
-    } catch (error) {
-      toast.error(error);
-    }
+    //   const result = await response.json();
+    //   if (response.ok) {
+    //     toast.success(result.message);
+    //     navigate("/admin/products");
+    //   } else {
+    //     toast.error(result.message);
+    //   }
+    // } catch (error) {
+    //   toast.error(error);
+    // }
   }
 
   function handleChange(e) {
@@ -106,6 +113,9 @@ const AddProducts = () => {
             type="file"
             name=""
             id=""
+            onChange={(e) => {
+              setPimage(e.target.files[0]);
+            }}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none "
           />
           <div className="text-right">

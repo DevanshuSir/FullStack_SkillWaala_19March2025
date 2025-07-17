@@ -5,6 +5,7 @@
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "mongoose": "^8.16.1",
+    "nodemailer": "^7.0.5",
     "nodemon": "^3.1.10"
   },
   "name": "backend",
