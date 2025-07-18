@@ -33,7 +33,7 @@ const Products = () => {
             className="bg-white shadow rounded-lg p-4 hover:shadow-lg transition"
           >
             <img
-              src="jvgWW"
+              src={`/uploads/${item.productImage}`}
               alt="ProductImage"
               className="w-full h-32 object-cover rounded"
             />

@@ -8,6 +8,7 @@ const ProductSchema = new Schema(
     productPrice: { type: String, required: true },
     productCategory: { type: String, required: true },
     productStatus: { type: String, default: "Out-Of-Stock" },
+    productImage: { type: String, require: true },
   },
   { timestamps: true }
 );

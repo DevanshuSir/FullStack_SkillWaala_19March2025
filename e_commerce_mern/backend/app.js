@@ -13,6 +13,7 @@ mongoose
     console.log(error);
   });
 
+app.use(express.static("public"));
 app.use(express.json());
 app.use("/api", apiRouter);
 let port = process.env.PORT || 5000;

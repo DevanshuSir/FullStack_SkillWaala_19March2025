@@ -59,7 +59,7 @@ const AdminProducts = () => {
               className="bg-white rounded-xl shadow p-4 hover:shadow-xl transition"
             >
               <img
-                src="asa"
+                src={`/uploads/${items.productImage}`}
                 alt="Product Image"
                 className="w-full h-40 object-cover rounded-md mb-4 border"
               />

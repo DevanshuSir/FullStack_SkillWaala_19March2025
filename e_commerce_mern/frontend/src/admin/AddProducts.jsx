@@ -15,24 +15,24 @@ const AddProducts = () => {
     formdata.append("Pname", product.Pname);
     formdata.append("Price", product.Price);
     formdata.append("Cat", product.Cat);
-    formdata.app
-    // try {
-    //   const response = await fetch("/api/addadminproduct", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(product),
-    //   });
+    formdata.append("image", pimage);
 
-    //   const result = await response.json();
-    //   if (response.ok) {
-    //     toast.success(result.message);
-    //     navigate("/admin/products");
-    //   } else {
-    //     toast.error(result.message);
-    //   }
-    // } catch (error) {
-    //   toast.error(error);
-    // }
+    try {
+      const response = await fetch("/api/addadminproduct", {
+        method: "POST",
+        body: formdata,
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        toast.success(result.message);
+        navigate("/admin/products");
+      } else {
+        toast.error(result.message);
+      }
+    } catch (error) {
+      toast.error(error);
+    }
   }
 
   function handleChange(e) {
@@ -55,6 +55,7 @@ const AddProducts = () => {
           Back
         </button>
         <form
+          encType="multipart/form-data"
           onSubmit={handleForm}
           action=""
           className="bg-white shadow-md rounded-xl p-6 max-w-3xl mx-auto space-y-6"
