@@ -1,4 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const saveCart = createAsyncThunk("cart/save", async (cartData) => {
+  const response = await fetch("/api/cart/save", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cartData),
+  });
+
+  return await response.json();
+});
+
+export const fetchCart = createAsyncThunk("cart/fetch", async (userId) => {
+  const response = await fetch(`/api/cart/${userId}`);
+  return await response.json();
+});
 
 const initialState = {
   cartItems: [],
@@ -67,6 +82,17 @@ export const cartSlice = createSlice({
         return item;
       });
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchCart.fulfilled, (state, action) => {
+      console.log("fetchComplete", action.payload);
+      state.cartItems = action.payload.cartItems || [];
+      state.TotalPrice = action.payload.totalprice || 0;
+      state.TotalQuantity = action.payload.totalQuantity || 0;
+    });
+    builder.addCase(saveCart.fulfilled, (state, action) => {
+      console.log("Cart Save..", action.payload);
+    });
   },
 });
 

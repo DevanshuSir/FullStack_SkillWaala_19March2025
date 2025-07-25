@@ -6,7 +6,6 @@ import Category from "../components/Category";
 const HomePage = () => {
   return (
     <div>
-      <Category />
       <Hero />
       <Products />
     </div>

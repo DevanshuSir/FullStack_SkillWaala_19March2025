@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { GiFingernail } from "react-icons/gi";
 
-const Category = () => {
+const Category = ({ onSelectCategory }) => {
   const categories = [
     { name: "All", icon: <FaShoppingBag /> },
     { name: "Cafe", icon: <FaCoffee /> },
@@ -23,12 +23,15 @@ const Category = () => {
   ];
 
   return (
-    <div className="bg-white shadow-sm mt-20 w-full">
+    <div className="bg-white  w-full">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex sm:justify-center overflow-x-auto">
           {categories.map((cat, index) => (
             <div
               key={index}
+              onClick={() => {
+                onSelectCategory(cat.name);
+              }}
               className="flex flex-col items-center min-w-[80px] text-sm text-gray-800 hover:text-green-600 hover:cursor-pointer"
             >
               <div className="text-2xl mb-1">{cat.icon}</div>

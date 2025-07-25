@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice/cartSlice";
+import Category from "./Category";
 
 const Products = () => {
   const [product, setProduct] = useState([]);
+  const [category, setCategory] = useState("All");
 
   const dispatch = useDispatch();
 
-  async function ProductsData() {
+  async function ProductsData(selectCategory = "All") {
     try {
-      const response = await fetch("/api/userproducts");
+      const response = await fetch(
+        `/api/userproducts?category=${selectCategory}`
+      );
       const record = await response.json();
       if (response.ok) {
         setProduct(record.data);
@@ -22,11 +26,12 @@ const Products = () => {
   }
 
   useEffect(() => {
-    ProductsData();
-  }, []);
+    ProductsData(category);
+  }, [category]);
 
   return (
     <section className="py-10 px-6 max-w-7xl mx-auto">
+      <Category onSelectCategory={setCategory} />
       <h2 className="text-2xl font-semibold text-gray-600 mb-6">
         Treading Products 🔥
       </h2>
@@ -39,7 +44,7 @@ const Products = () => {
             <img
               src={`/uploads/${item.productImage}`}
               alt="ProductImage"
-              className="w-full h-32 object-cover rounded"
+              className="w-full h-32 object-contain rounded"
             />
             <h3 className="mt-2 font-medium text-gray-700">
               {item.productName}

@@ -10,10 +10,12 @@ import {
 import { MdContactSupport } from "react-icons/md";
 import { useState } from "react";
 import Logo from "../assets/Quickzy.png";
+import SearchData from "./SearchData";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <nav className="bg-gradient-to-r from-green-100 via-white to-white shadow-md fixed top-0 left-0 right-0 z-50">
@@ -24,17 +26,19 @@ export default function Navbar() {
             <img src={Logo} alt="Logo" className="h-24 w-auto" />
           </div>
 
-          {/* Search */}
-
+          {/* 🔍 Search Bar */}
           <div className="flex-1 mx-4">
             <div className="relative">
               <input
-                type="search"
-                name=""
-                id=""
-                className="w-full bg-gray-200 rounded-full ps-4 pe-10 py-2 shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                type="text"
+                placeholder="Search for fruits, snacks and more"
+                className="w-full bg-gray-100 rounded-full pl-4 pr-10 py-2 shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                onFocus={() => {
+                  setShowSearch(true);
+                }}
+                readOnly
               />
-              <FaSearch className="absolute right-3 top-3 text-sm text-gray-500 " />
+              <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm" />
             </div>
           </div>
 
@@ -89,6 +93,8 @@ export default function Navbar() {
           </Link>
         </div>
       )}
+
+      {showSearch && <SearchData onClose={setShowSearch} />}
     </nav>
   );
 }

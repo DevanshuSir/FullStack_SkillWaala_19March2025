@@ -29,6 +29,7 @@ const Login = () => {
         } else {
           toast.success(result.message);
           navigate("/");
+          localStorage.setItem("token", result.token);
         }
       } else {
         toast.error(result.message);

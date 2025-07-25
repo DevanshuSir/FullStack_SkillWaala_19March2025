@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
@@ -8,7 +8,9 @@ import {
   carttotalPrice,
   DecrementQuantity,
   deleteCartItem,
+  fetchCart,
   IncrementQuantity,
+  saveCart,
 } from "../features/cartSlice/cartSlice";
 
 const Cart = () => {
@@ -18,7 +20,26 @@ const Cart = () => {
   const cartAllValue = useSelector((state) => state.Cart);
   const dispatch = useDispatch();
 
-  dispatch(carttotalPrice());
+  useEffect(() => {
+    dispatch(carttotalPrice());
+  }, [cartData, dispatch]);
+
+  useEffect(() => {
+    if (cartData.length > 0) {
+      dispatch(
+        saveCart({
+          userId: "686d3c699f2580fea5c0a1f6",
+          cartItems: cartData,
+          totalPrice: cartAllValue.TotalPrice,
+          totalQuantity: cartAllValue.TotalQuantity,
+        })
+      );
+    }
+  }, [cartData, cartAllValue, dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchCart("686d3c699f2580fea5c0a1f6"));
+  }, [dispatch]);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center z-50">
@@ -38,7 +59,7 @@ const Cart = () => {
           <ul className="divide-y divide-gray-300" key={index}>
             <li className="flex items-center gap-5 py-4">
               <img
-                src="jbj"
+                src={`/uploads/${value.productImage}`}
                 alt="ProductImage"
                 className="w-16 h-16 object-cover rounded border"
               />
