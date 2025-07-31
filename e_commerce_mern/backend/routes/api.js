@@ -2,6 +2,7 @@ const api = require("express").Router();
 const userController = require("../controller/user");
 const adminController = require("../controller/admin");
 const uploads = require("../middleware/multer");
+const auth = require("../middleware/auth");
 
 api.get("/", (req, res) => {
   res.send("Hello Backend");
@@ -23,8 +24,10 @@ api.get("/userallquery", adminController.userAllQueryController);
 api.delete("/deletequery/:abc", adminController.deleteQueryController);
 api.get("/querysingledata/:abc", adminController.singleQueryController);
 api.post("/mailreply/:abc", adminController.MailReplyController);
-api.post("/cart/save", userController.saveCartController);
-api.get("/cart/:userId", userController.getCartController);
+api.post("/cart/save", auth, userController.saveCartController);
+api.get("/cart/:userId", auth, userController.getCartController);
 api.get("/serach", userController.serachController);
+api.post("/create-order", userController.OrderController);
+api.post("/verify", auth, userController.VerifyController);
 
 module.exports = api;

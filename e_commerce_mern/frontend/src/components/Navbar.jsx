@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaShoppingCart,
   FaBars,
@@ -11,11 +11,24 @@ import { MdContactSupport } from "react-icons/md";
 import { useState } from "react";
 import Logo from "../assets/Quickzy.png";
 import SearchData from "./SearchData";
+import toast from "react-hot-toast";
+import { IoMdLogOut } from "react-icons/io";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   const [showSearch, setShowSearch] = useState(false);
+
+  const navigate = useNavigate();
+
+  let token = localStorage.getItem("token");
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    toast.success("Log Out Successfully 😉 ");
+    navigate("/");
+  };
 
   return (
     <nav className="bg-gradient-to-r from-green-100 via-white to-white shadow-md fixed top-0 left-0 right-0 z-50">
@@ -56,12 +69,19 @@ export default function Navbar() {
             >
               <MdContactSupport className="text-xl" />
             </Link>
-            <Link
-              to={"/login"}
-              className="flex items-center gap-1 text-gray-700 hover:text-green-600"
-            >
-              <FaRegUserCircle className="text-xl" />
-            </Link>
+            {!token ? (
+              <Link
+                to={"/login"}
+                className="flex items-center gap-1 text-gray-700 hover:text-green-600"
+              >
+                <FaRegUserCircle className="text-xl" />
+              </Link>
+            ) : (
+              <IoMdLogOut
+                onClick={handleLogOut}
+                className="text-2xl font-extrabold text-red-500 hover:cursor-pointer hover:text-red-800"
+              />
+            )}
           </div>
 
           {/* Mobile Hamburger */}
@@ -85,12 +105,21 @@ export default function Navbar() {
           >
             Cart
           </Link>
-          <Link
-            to={"/login"}
-            className="block text-gray-700 hover:text-green-600"
-          >
-            User
-          </Link>
+          {!token ? (
+            <Link
+              to={"/login"}
+              className="block text-gray-700 hover:text-green-600"
+            >
+              User
+            </Link>
+          ) : (
+            <button
+              onClick={handleLogOut}
+              className="block text-red-500 font-semibold"
+            >
+              LogOut
+            </button>
+          )}
         </div>
       )}
 

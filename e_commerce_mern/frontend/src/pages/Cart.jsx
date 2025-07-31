@@ -12,6 +12,8 @@ import {
   IncrementQuantity,
   saveCart,
 } from "../features/cartSlice/cartSlice";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -19,16 +21,20 @@ const Cart = () => {
   const cartData = useSelector((state) => state.Cart.cartItems);
   const cartAllValue = useSelector((state) => state.Cart);
   const dispatch = useDispatch();
+  const [checkingAuth, setCheckingAuth] = useState(true);
 
   useEffect(() => {
     dispatch(carttotalPrice());
   }, [cartData, dispatch]);
 
   useEffect(() => {
-    if (cartData.length > 0) {
+    let userId = localStorage.getItem("user");
+    let token = localStorage.getItem("token");
+
+    if (token && userId && cartData.length > 0) {
       dispatch(
         saveCart({
-          userId: "686d3c699f2580fea5c0a1f6",
+          userId: userId,
           cartItems: cartData,
           totalPrice: cartAllValue.TotalPrice,
           totalQuantity: cartAllValue.TotalQuantity,
@@ -38,8 +44,101 @@ const Cart = () => {
   }, [cartData, cartAllValue, dispatch]);
 
   useEffect(() => {
-    dispatch(fetchCart("686d3c699f2580fea5c0a1f6"));
-  }, [dispatch]);
+    let token = localStorage.getItem("token");
+    let userId = localStorage.getItem("user");
+
+    if (!token) {
+      toast.error("Please Login to access your cart");
+      navigate("/login");
+      return;
+    }
+
+    if (userId) {
+      dispatch(fetchCart(userId));
+      setCheckingAuth(false);
+    } else {
+      setCheckingAuth(false);
+    }
+  }, [dispatch, navigate]);
+
+  function handlePayment() {
+    const amount = cartAllValue.TotalPrice;
+    const currency = "INR";
+    const receipt = "receipet#1";
+
+    fetch("/api/create-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        amount: amount,
+        currency: currency,
+        receipt: receipt,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((order) => {
+        const options = {
+          key: "rzp_test_5Je13nR9dWaC7o", // Replace with your RazorPay Key ID
+          amount: order.amount,
+          currency: order.currency,
+          name: "Quickzy",
+          description: "Test Mode",
+          order_id: order.id,
+          handler: function (response) {
+            let token = localStorage.getItem("token");
+            let userID = localStorage.getItem("user");
+            fetch("/api/verify", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                amount,
+                userID,
+              }),
+            })
+              .then((res) => {
+                return res.json();
+              })
+              .then((result) => {
+                if (result.success) {
+                  toast.success("Payment Successfully 😉");
+                } else {
+                  toast.error("Payment Failed 😐");
+                }
+              });
+          },
+
+          prefill: {
+            name: "Devanshu",
+            email: "john.doe@example.com",
+            contact: "9999999999",
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+
+        const paymentObject = new window.Razorpay(options);
+        paymentObject.open();
+      });
+  }
+
+  if (checkingAuth) {
+    return (
+      <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-40">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          Loading Cart ...
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center z-50">
@@ -110,7 +209,10 @@ const Cart = () => {
             Total:-{" "}
             <span className="text-green-500">₹{cartAllValue.TotalPrice}</span>
           </p>
-          <button className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+          <button
+            onClick={handlePayment}
+            className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-700 transition"
+          >
             Checkout
           </button>
         </div>

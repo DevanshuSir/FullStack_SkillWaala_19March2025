@@ -30,6 +30,7 @@ const Login = () => {
           toast.success(result.message);
           navigate("/");
           localStorage.setItem("token", result.token);
+          localStorage.setItem("user", result.data._id);
         }
       } else {
         toast.error(result.message);

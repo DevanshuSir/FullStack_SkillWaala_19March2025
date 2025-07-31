@@ -27,7 +27,7 @@ const Products = () => {
 
   useEffect(() => {
     ProductsData(category);
-  }, [category]);
+  }, [category, dispatch]);
 
   return (
     <section className="py-10 px-6 max-w-7xl mx-auto">
